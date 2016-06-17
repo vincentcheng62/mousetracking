@@ -1,4 +1,4 @@
-﻿#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/highgui/highgui.hpp"
 #include "opencv2/video/tracking.hpp"
 #include <Windows.h>
 
@@ -48,6 +48,7 @@ int main2()
 	mousev.clear();
 	kalmanv.clear();
 
+	//main loop
 	while (true)
 	{
 		// First predict, to update the internal statePre variable
