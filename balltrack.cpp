@@ -85,7 +85,7 @@ int main() {
 	cv::VideoCapture cap;      // >>>>> Camera Settings
 	if (!cap.open(idx))
 	{
-		cout << "Webcam not connected.\n" << "Please verify\n";
+		std::cout << "Webcam not connected.\n" << "Please verify\n";
 		return EXIT_FAILURE;
 	}
 
@@ -93,7 +93,7 @@ int main() {
 	cap.set(CV_CAP_PROP_FRAME_HEIGHT, 768);
 	// <<<<< Camera Settings
 
-	cout << "\nHit 'q' to exit...\n";
+	std::cout << "\nHit 'q' to exit...\n";
 	char ch = 0;      double ticks = 0;    bool found = false;      int notFoundCount = 0;            // >>>>> Main loop  
 	while (ch != 'q' || ch != 'Q')
 	{
@@ -115,10 +115,10 @@ int main() {
 			kf.transitionMatrix.at<float>(9) = dT;
 			// <<<< Matrix A
 
-			cout << "dT:" << endl << dT << endl;
+			std::cout << "dT:" << std::endl << dT << std::endl;
 
 			state = kf.predict();
-			cout << "State post:" << endl << state << endl;
+			std::cout << "State post:" << std::endl << state << std::endl;
 			cv::Rect predRect;
 			predRect.width = state.at<float>(4);
 			predRect.height = state.at<float>(5);
@@ -195,7 +195,7 @@ int main() {
 		//}
 		// <<<<< Filtering
 
-		cout << "Balls found:" << ballsBox.size() << endl;         // >>>>> Detection result
+		std::cout << "Balls found:" << ballsBox.size() << std::endl;         // >>>>> Detection result
 		for (size_t i = 0; i < ballsBox.size(); i++)
 		{
 			//cv::drawContours(res, balls, i, CV_RGB(20, 150, 20), 1);
@@ -216,7 +216,7 @@ int main() {
 		if (ballsBox.size() == 0)
 		{
 			notFoundCount++;
-			cout << "notFoundCount:" << notFoundCount << endl;          if (notFoundCount >= 10)
+			std::cout << "notFoundCount:" << notFoundCount << std::endl;          if (notFoundCount >= 10)
 			{
 				found = false;
 			}
@@ -255,7 +255,7 @@ int main() {
 			else
 				kf.correct(meas); // Kalman Correction
 
-			cout << "Measure matrix:" << endl << meas << endl;
+			std::cout << "Measure matrix:" << std::endl << meas << std::endl;
 		}
 		// <<<<< Kalman Update
 
