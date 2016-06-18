@@ -19,7 +19,6 @@
 #include <vector>
 
 using std::vector;
-using namespace std;
 
 // >>>>> Color to be tracked
 #define MIN_H_BLUE 200
