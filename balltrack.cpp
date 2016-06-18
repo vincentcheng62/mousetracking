@@ -94,6 +94,8 @@ int main() {
 
 	std::cout << "\nHit 'q' to exit...\n";
 	char ch = 0;      double ticks = 0;    bool found = false;      int notFoundCount = 0;            // >>>>> Main loop  
+	
+	// >>>>> Main loop  
 	while (ch != 'q' || ch != 'Q')
 	{
 		double precTick = ticks;
